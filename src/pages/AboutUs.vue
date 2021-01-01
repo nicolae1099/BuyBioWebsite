@@ -11,7 +11,7 @@ export default {
       items: [
         {
           //item1
-          label: "Fructe",
+          label: "Fructele",
           icon: "pi pi-fw pi-file",
           items: [
             {
