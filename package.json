@@ -12,10 +12,12 @@
     "@material/mwc-menu": "^0.20.0",
     "@webcomponents/webcomponentsjs": "^2.5.0",
     "core-js": "^3.6.5",
+    "firebase": "^8.2.1",
     "primeicons": "^4.1.0",
     "primevue": "^3.1.1",
     "vue": "^3.0.0",
-    "vue-router": "^4.0.2"
+    "vue-router": "^4.0.2",
+    "vuex": "^4.0.0-rc.2"
   },
   "devDependencies": {
     "@tailwindcss/postcss7-compat": "^2.0.2",
@@ -62,5 +64,9 @@
       "vue-cli-service lint",
       "git add"
     ]
-  }
+  },
+  "description": "## Project setup ``` npm install ```",
+  "main": "babel.config.js",
+  "author": "",
+  "license": "ISC"
 }

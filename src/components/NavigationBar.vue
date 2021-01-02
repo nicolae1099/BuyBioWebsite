@@ -12,7 +12,7 @@
 export default {
   data() {
     return {
-      list: [{ title: "About Us", to: "/about-us" }]
+      list: [{ title: "Toate Produsele", to: "/ToateProdusele" }]
     };
   }
 };

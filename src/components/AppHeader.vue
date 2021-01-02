@@ -9,15 +9,47 @@
       <section>buybio.ro@gmail.com</section>
     </div>
     <div class="flex">
+      <Button label="Adauga produs" class="mx-1" @click="adaugaProdus"></Button>
       <Button label="Inregistreaza producator" class="mx-1"></Button>
       <Button label="Inregistreaza cumparator" class="mx-1"></Button>
-      <Button label="Autentificare" class="mx-1"></Button>
+      <Button
+        v-if="isLoggedIn"
+        class="mx-2"
+        @click="logout"
+        label="Logout"
+      ></Button>
+      <Button
+        v-else
+        label="Autentificare"
+        class="mx-1"
+        @click="openLogin"
+      ></Button>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import firebase from "../utilities/firebase";
+export default {
+  computed: {
+    isLoggedIn() {
+      return this.$store.state.isLoggedIn;
+    }
+  },
+  methods: {
+    logout() {
+      firebase.auth().signOut();
+      //.then((res) => {})
+      //.catch((e) => {});
+    },
+
+    openLogin() {
+      this.$store.commit("setLoginModal", true);
+    },
+
+    adaugaProdus() {}
+  }
+};
 </script>
 
 <style></style>
