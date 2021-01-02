@@ -1,6 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/auth";
-//import "firebase/firestore";
+import "firebase/firestore";
 //import "firebase/storage";
 //import "firebase/functions";
 //import "firebase/database";
@@ -8,6 +8,8 @@ import "firebase/auth";
 const firebaseConfig = {
   apiKey: "AIzaSyDLTgAPM8XK9roXlv7wJUvPI8Yin3EmhsU",
   authDomain: "buybio-7da47.firebaseapp.com",
+  databaseURL:
+    "https://buybio-7da47-default-rtdb.europe-west1.firebasedatabase.app",
   projectId: "buybio-7da47",
   storageBucket: "buybio-7da47.appspot.com",
   messagingSenderId: "747569582129",
@@ -19,7 +21,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 //const auth = firebase.auth();
-//const db = firebase.database();
+//const db = firebase.firestore();
 //const storage = firebase.storage();
 //const functions = firebase.functions();
 

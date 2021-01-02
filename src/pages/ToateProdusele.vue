@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import firebase from "../utilities/firebase";
 export default {
   data() {
     return {
@@ -143,6 +144,18 @@ export default {
         }
       ]
     };
+  },
+  mounted() {
+    firebase
+      .firestore()
+      .collection("produse")
+      .get()
+      .then(querySnapshot => {
+        //console.log(querySnapshot);
+        querySnapshot.forEach(doc => {
+          console.log(doc.data());
+        });
+      });
   }
 };
 </script>

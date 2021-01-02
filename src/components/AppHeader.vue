@@ -47,7 +47,16 @@ export default {
       this.$store.commit("setLoginModal", true);
     },
 
-    adaugaProdus() {}
+    adaugaProdus() {
+      firebase
+        .firestore()
+        .collection("produse")
+        .add({
+          nume: "pere",
+          numeProducator: "Ionica",
+          pret: 5
+        });
+    }
   }
 };
 </script>
