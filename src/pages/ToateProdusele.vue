@@ -147,14 +147,12 @@ export default {
   },
   mounted() {
     firebase
-      .firestore()
-      .collection("produse")
-      .get()
-      .then(querySnapshot => {
-        //console.log(querySnapshot);
-        querySnapshot.forEach(doc => {
-          console.log(doc.data());
-        });
+      .storage()
+      .ref("file")
+      .put("../assets/oua.jpg")
+      .then(function(snapshot) {
+        console.log(snapshot);
+        console.log("mare succes");
       });
   }
 };

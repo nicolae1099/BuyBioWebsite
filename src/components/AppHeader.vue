@@ -48,14 +48,13 @@ export default {
     },
 
     adaugaProdus() {
-      firebase
-        .firestore()
-        .collection("produse")
-        .add({
-          nume: "pere",
-          numeProducator: "Ionica",
-          pret: 5
-        });
+      this.$router.push("/adaugaProdus");
+      /*firebase.firestore().collection("produse").add({
+        nume: "pere",
+        numeProducator: "Ionica",
+        pret: 5,
+      });
+      */
     }
   }
 };

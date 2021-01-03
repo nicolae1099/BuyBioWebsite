@@ -1,5 +1,7 @@
 <template>
-  <Card style="width: 25em">
+  <h1>produs</h1>
+  <!--
+    <Card style="width: 25em">
     <template #header>
       <img
         alt="user header"
@@ -26,6 +28,7 @@
       />
     </template>
   </Card>
+  -->
 </template>
 
 <script>

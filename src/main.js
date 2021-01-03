@@ -8,15 +8,28 @@ import PrimeVue from "primevue/config";
 import Button from "primevue/button";
 import TieredMenu from "primevue/tieredmenu";
 import Card from "primevue/card";
+import InputText from "primevue/inputtext";
+import AutoComplete from "primevue/autocomplete";
+import MultiSelect from "primevue/multiselect";
+import Dropdown from "primevue/dropdown";
+import FileUpload from "primevue/fileupload";
 
 import "primevue/resources/themes/saga-blue/theme.css"; //theme
 //import 'primevue/resources/primevue.min.css'; //core css
 import "primeicons/primeicons.css"; //icons
 
+//primeflex imports
+import "primeflex/primeflex.css";
+
 createApp(App)
   .component("Button", Button)
   .component("TieredMenu", TieredMenu)
   .component("Card", Card)
+  .component("InputText", InputText)
+  .component("AutoComplete", AutoComplete)
+  .component("MultiSelect", MultiSelect)
+  .component("Dropdown", Dropdown)
+  .component("FileUpload", FileUpload)
   .use(PrimeVue)
   .use(store)
   .use(router)
