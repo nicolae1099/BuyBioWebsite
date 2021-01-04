@@ -2,6 +2,10 @@
   <div>
     <TieredMenu :model="items" />
   </div>
+  <div>
+    <input type="file" id="photo" />
+    <button @click="uploadImage()">Upload Image</button>
+  </div>
 </template>
 
 <script>
@@ -147,13 +151,34 @@ export default {
   },
   mounted() {
     firebase
-      .storage()
-      .ref("file")
-      .put("../assets/oua.jpg")
-      .then(function(snapshot) {
-        console.log(snapshot);
-        console.log("mare succes");
+      .firestore()
+      .collection("produse")
+      .get()
+      .then(querySnapshot => {
+        //console.log(querySnapshot);
+        querySnapshot.forEach(doc => {
+          console.log(doc.data());
+        });
       });
+  },
+  methods: {
+    uploadImage() {
+      const ref = firebase.storage().ref();
+      console.log(document.querySelector("#photo").files[0]);
+      const file = document.querySelector("#photo").files[0];
+      const name = +new Date() + "-" + file.name;
+      const metadata = {
+        contentType: file.type
+      };
+      const task = ref.child(name).put(file, metadata);
+      task
+        .then(snapshot => snapshot.ref.getDownloadURL())
+        .then(url => {
+          console.log(url);
+          //document.querySelector("#image").src = url;
+        })
+        .catch(console.error);
+    }
   }
 };
 </script>

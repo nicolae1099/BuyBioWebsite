@@ -105,6 +105,8 @@
         :multiple="true"
         accept="image/*"
         :maxFileSize="1000000"
+        :customUpload="true"
+        @uploader="myUploader"
       >
         <template #empty>
           <p>Drag and drop files to here to upload.</p>
@@ -115,7 +117,7 @@
 </template>
 
 <script>
-import db from "../utilities/firebase";
+import firebase from "../utilities/firebase";
 export default {
   data() {
     return {
@@ -139,15 +141,23 @@ export default {
   },
 
   methods: {
-    async onUpload() {
-      await db
-        .storage()
-        .ref()
-        .put("../assets/vin.jpg")
-        .then(function(snapshot) {
-          console.log(snapshot);
-          console.log("Upload succes");
-        });
+    myUploader(event) {
+      console.log(event.files[0]);
+      //event.files == files to upload
+      const ref = firebase.storage().ref();
+      const file = event.files[0];
+      const name = +new Date() + "-" + file.name;
+      const metadata = {
+        contentType: file.type
+      };
+      const task = ref.child(name).put(file, metadata);
+      task
+        .then(snapshot => snapshot.ref.getDownloadURL())
+        .then(url => {
+          console.log(url);
+          //document.querySelector("#image").src = url;
+        })
+        .catch(console.error);
     }
   }
 };
