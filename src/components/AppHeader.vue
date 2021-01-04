@@ -9,7 +9,11 @@
       <section>buybio.ro@gmail.com</section>
     </div>
     <div class="flex">
-      <Button label="Adauga produs" class="mx-1" @click="adaugaProdus"></Button>
+      <Button
+        label="Adaugă un produs nou"
+        class="mx-1"
+        @click="adaugaProdus"
+      ></Button>
       <Button label="Inregistreaza producator" class="mx-1"></Button>
       <Button label="Inregistreaza cumparator" class="mx-1"></Button>
       <Button

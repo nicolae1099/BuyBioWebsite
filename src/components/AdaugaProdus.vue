@@ -3,36 +3,21 @@
     <div class="p-field p-col-4 p-md-4">
       <span class="p-float-label">
         <label for="inputtext">Nume Produs</label>
-        <InputText
-          id="inputtext"
-          type="text"
-          v-model="value1"
-          placeholder="Nume produs"
-        />
+        <InputText type="text" v-model="numeProdus" placeholder="Nume produs" />
       </span>
     </div>
 
     <div class="p-field p-col-12 p-md-4">
       <span class="p-float-label">
         <label for="inputtext">Pret</label>
-        <InputText
-          id="inputtext"
-          type="text"
-          v-model="value1"
-          placeholder="pret"
-        />
+        <InputText type="text" v-model="pret" placeholder="pret" />
       </span>
     </div>
 
     <div class="p-field p-col-12 p-md-4">
       <span class="p-float-label">
         <label for="inputtext">Cantitate</label>
-        <InputText
-          id="inputtext"
-          type="text"
-          v-model="value1"
-          placeholder="cantitate"
-        />
+        <InputText type="text" v-model="cantitate" placeholder="cantitate" />
       </span>
     </div>
 
@@ -40,8 +25,8 @@
       <span class="p-float-label">
         <label for="multiselect">Selecteaza unde poti livra</label>
         <MultiSelect
-          v-model="selectedCities"
-          :options="cities"
+          v-model="oraseSelectate"
+          :options="orase"
           optionLabel="name"
           placeholder="Locatii alese"
           :filter="true"
@@ -99,9 +84,6 @@
 
     <div>
       <FileUpload
-        name="demo[]"
-        url="https://console.firebase.google.com/u/0/project/buybio-7da47/storage/buybio-7da47.appspot.com/files"
-        @upload="onUpload"
         :multiple="true"
         accept="image/*"
         :maxFileSize="1000000"
@@ -109,9 +91,26 @@
         @uploader="myUploader"
       >
         <template #empty>
-          <p>Drag and drop files to here to upload.</p>
+          <p>Trage imagini aici.</p>
         </template>
       </FileUpload>
+    </div>
+
+    <div class="flex">
+      <Button
+        label="Creează produs"
+        icon="pi pi-check"
+        iconPos="right"
+        class="mx-2"
+        @click="creeazaProdus($event)"
+      />
+      <Button
+        label="Creează & adaugă încă unul"
+        icon="pi pi-check"
+        iconPos="right"
+        class="mx-2"
+        @click="handleClick($event)"
+      />
     </div>
   </div>
 </template>
@@ -121,22 +120,26 @@ import firebase from "../utilities/firebase";
 export default {
   data() {
     return {
-      selectedCities: null,
-      categorieSelectata: null,
-      cities: [
-        { name: "Pitesti", code: "NY" },
-        { name: "Bascov", code: "RM" },
-        { name: "Mioveni", code: "LDN" },
-        { name: "Stefanesti", code: "IST" },
-        { name: "Topoloveni", code: "PRS" },
-        { name: "Bradu", code: "PRS" }
+      numeProdus: null,
+      pret: null,
+      cantitate: null,
+      orase: [
+        { name: "Pitesti" },
+        { name: "Bascov" },
+        { name: "Mioveni" },
+        { name: "Stefanesti" },
+        { name: "Topoloveni" },
+        { name: "Bradu" }
       ],
+      oraseSelectate: null,
+
       categorii: [
         { name: "Fructe" },
         { name: "Legume" },
         { name: "Prajituri" },
         { name: "Branzeturi" }
-      ]
+      ],
+      categorieSelectata: null
     };
   },
 
@@ -158,6 +161,20 @@ export default {
           //document.querySelector("#image").src = url;
         })
         .catch(console.error);
+    },
+
+    creeazaProdus(event) {
+      console.log(event);
+      firebase
+        .firestore()
+        .collection(this.categorieSelectata.name)
+        .add({
+          numeProdus: this.numeProdus,
+          pret: this.pret,
+          cantitate: this.cantitate,
+          oraseSelectate: this.oraseSelectate,
+          categorieSelectata: this.categorieSelectata
+        });
     }
   }
 };
