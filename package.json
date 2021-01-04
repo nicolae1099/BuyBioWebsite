@@ -11,6 +11,7 @@
     "@material/mwc-button": "^0.20.0",
     "@material/mwc-menu": "^0.20.0",
     "@webcomponents/webcomponentsjs": "^2.5.0",
+    "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "firebase": "^8.2.1",
     "firebase-admin": "^9.4.2",

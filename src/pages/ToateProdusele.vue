@@ -2,22 +2,25 @@
   <div>
     <TieredMenu :model="items" />
   </div>
-  <div>
-    <input type="file" id="photo" />
-    <button @click="uploadImage()">Upload Image</button>
-  </div>
 </template>
 
 <script>
-import firebase from "../utilities/firebase";
+//import firebase from "../utilities/firebase";
 export default {
   data() {
     return {
       items: [
         {
           //item1
-          label: "Fructele",
+          label: "Fructe",
           icon: "pi pi-fw pi-file",
+          to: "./Fructe",
+          command: event => {
+            console.log(event.item);
+
+            // event.originalEvent: Browser event
+            // event.item: Menuitem instance
+          },
           items: [
             {
               label: "New",
@@ -148,37 +151,6 @@ export default {
         }
       ]
     };
-  },
-  mounted() {
-    firebase
-      .firestore()
-      .collection("produse")
-      .get()
-      .then(querySnapshot => {
-        //console.log(querySnapshot);
-        querySnapshot.forEach(doc => {
-          console.log(doc.data());
-        });
-      });
-  },
-  methods: {
-    uploadImage() {
-      const ref = firebase.storage().ref();
-      console.log(document.querySelector("#photo").files[0]);
-      const file = document.querySelector("#photo").files[0];
-      const name = +new Date() + "-" + file.name;
-      const metadata = {
-        contentType: file.type
-      };
-      const task = ref.child(name).put(file, metadata);
-      task
-        .then(snapshot => snapshot.ref.getDownloadURL())
-        .then(url => {
-          console.log(url);
-          //document.querySelector("#image").src = url;
-        })
-        .catch(console.error);
-    }
   }
 };
 </script>
