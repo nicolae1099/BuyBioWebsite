@@ -7,6 +7,9 @@
   <div>
     <LoginModal />
   </div>
+  <div>
+    <TopFructe />
+  </div>
 </template>
 
 <script>
@@ -14,6 +17,7 @@ import NavigationBar from "./components/NavigationBar";
 import AppHeader from "./components/AppHeader";
 import LoginModal from "./components/LoginModal";
 import firebase from "./utilities/firebase";
+import TopFructe from "./pages/TopFructe";
 export default {
   mounted() {
     firebase.auth().onAuthStateChanged(user => {
@@ -27,7 +31,7 @@ export default {
       }
     });
   },
-  components: { NavigationBar, AppHeader, LoginModal }
+  components: { NavigationBar, AppHeader, LoginModal, TopFructe }
 };
 </script>
 

@@ -16,9 +16,7 @@ import FileUpload from "primevue/fileupload";
 import DataView from "primevue/dataview";
 import DataViewLayoutOptions from "primevue/dataviewlayoutoptions";
 import Rating from "primevue/rating";
-import DataTable from "primevue/datatable";
-import Column from "primevue/column";
-import ColumnGroup from "primevue/columngroup";
+import Carousel from "primevue/carousel";
 
 import "primevue/resources/themes/saga-blue/theme.css"; //theme
 //import 'primevue/resources/primevue.min.css'; //core css
@@ -39,9 +37,7 @@ createApp(App)
   .component("DataView", DataView)
   .component("DataViewLayoutOptions", DataViewLayoutOptions)
   .component("Rating", Rating)
-  .component("DataTable", DataTable)
-  .component("Column", Column)
-  .component("ColumnGroup", ColumnGroup)
+  .component("Carousel", Carousel)
   .use(PrimeVue)
   .use(store)
   .use(router)
