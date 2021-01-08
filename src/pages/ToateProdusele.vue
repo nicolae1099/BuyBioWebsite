@@ -53,6 +53,7 @@ export default {
         {
           label: "Legume",
           icon: "pi pi-fw pi-pencil",
+          to: "./Legume",
           items: [
             {
               label: "Left",
@@ -77,6 +78,7 @@ export default {
         {
           label: "Branzeturi",
           icon: "pi pi-fw pi-user",
+          to: "./Branzeturi",
           items: [
             {
               label: "New",
@@ -111,8 +113,9 @@ export default {
 
         // item4
         {
-          label: "Carne",
+          label: "Prajituri",
           icon: "pi pi-fw pi-calendar",
+          to: "./Prajituri",
           items: [
             {
               label: "Edit",

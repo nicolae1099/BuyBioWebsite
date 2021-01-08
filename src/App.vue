@@ -7,7 +7,6 @@
   <div>
     <LoginModal />
   </div>
-  <Products />
 </template>
 
 <script>
@@ -15,7 +14,6 @@ import NavigationBar from "./components/NavigationBar";
 import AppHeader from "./components/AppHeader";
 import LoginModal from "./components/LoginModal";
 import firebase from "./utilities/firebase";
-import Products from "./components/Products.vue";
 export default {
   mounted() {
     firebase.auth().onAuthStateChanged(user => {
@@ -29,7 +27,7 @@ export default {
       }
     });
   },
-  components: { NavigationBar, AppHeader, LoginModal, Products }
+  components: { NavigationBar, AppHeader, LoginModal }
 };
 </script>
 

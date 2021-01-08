@@ -139,7 +139,8 @@ export default {
         { name: "Prajituri" },
         { name: "Branzeturi" }
       ],
-      categorieSelectata: null
+      categorieSelectata: null,
+      imagineLink: null
     };
   },
 
@@ -153,12 +154,13 @@ export default {
       const metadata = {
         contentType: file.type
       };
+
       const task = ref.child(name).put(file, metadata);
       task
         .then(snapshot => snapshot.ref.getDownloadURL())
         .then(url => {
-          console.log(url);
-          //document.querySelector("#image").src = url;
+          //console.log(url);
+          this.imagineLink = url;
         })
         .catch(console.error);
     },
@@ -169,6 +171,7 @@ export default {
         .firestore()
         .collection(this.categorieSelectata.name)
         .add({
+          imagineLink: this.imagineLink,
           numeProdus: this.numeProdus,
           pret: this.pret,
           cantitate: this.cantitate,

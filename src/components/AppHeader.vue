@@ -1,7 +1,11 @@
 <template>
   <div class="m-auto w-full flex justify-between">
     <div>
-      <img src="../assets/buyBioLogo.png" class="rounded w-20 mx-10" />
+      <img
+        src="../assets/buyBioLogo.png"
+        class="rounded w-20 mx-10"
+        @click="goHome"
+      />
     </div>
     <div>
       <section class="text-2xl">Suport</section>
@@ -59,6 +63,10 @@ export default {
         pret: 5,
       });
       */
+    },
+
+    goHome() {
+      this.$router.push("./");
     }
   }
 };

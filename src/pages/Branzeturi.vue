@@ -156,7 +156,7 @@ export default {
   mounted() {
     firebase
       .firestore()
-      .collection("Fructe")
+      .collection("Branzeturi")
       .get()
       .then(querySnapshot => {
         //console.log(querySnapshot);
@@ -165,7 +165,7 @@ export default {
           this.products.push({
             imagineLink: doc.data().imagineLink,
             statusStock: "În stock",
-            categorie: "Fructe",
+            categorie: "Branzeturi",
             numeProdus: doc.data().numeProdus,
             pret: doc.data().pret,
             cantitate: doc.data().cantitate
