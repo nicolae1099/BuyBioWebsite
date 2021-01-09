@@ -6,10 +6,13 @@
       :numScroll="4"
       :responsiveOptions="responsiveOptions"
       :circular="true"
-      :autoplayInterval="3000"
+      :autoplayInterval="5000"
     >
       <template #header>
-        <h5>Basic</h5>
+        <div class="flex flex-wrap">
+          <h1 class="text-2xl mx-10">Cele mai apreciate fructe</h1>
+          <Button label="Vezi oferta completa" @click="veziOfertaCompleta" />
+        </div>
       </template>
       <template #item="slotProps">
         <div class="product-item">
@@ -99,6 +102,12 @@ export default {
           });
         });
       });
+  },
+
+  methods: {
+    veziOfertaCompleta() {
+      this.$router.push("./Fructe");
+    }
   }
 };
 </script>

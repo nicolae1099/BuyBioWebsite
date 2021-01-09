@@ -8,7 +8,25 @@
     <LoginModal />
   </div>
   <div>
+    <img src="./assets/buyBioSubHeader.jpeg" class="w-full" />
+  </div>
+  <div>
     <TopFructe />
+  </div>
+  <div>
+    <TopFructe />
+  </div>
+  <div>
+    <TopFructe />
+  </div>
+  <div>
+    <TopFructe />
+  </div>
+  <div>
+    <TopFructe />
+  </div>
+  <div>
+    <Footer />
   </div>
 </template>
 
@@ -18,6 +36,7 @@ import AppHeader from "./components/AppHeader";
 import LoginModal from "./components/LoginModal";
 import firebase from "./utilities/firebase";
 import TopFructe from "./pages/TopFructe";
+import Footer from "./components/Footer";
 export default {
   mounted() {
     firebase.auth().onAuthStateChanged(user => {
@@ -31,7 +50,7 @@ export default {
       }
     });
   },
-  components: { NavigationBar, AppHeader, LoginModal, TopFructe }
+  components: { NavigationBar, AppHeader, LoginModal, TopFructe, Footer }
 };
 </script>
 
