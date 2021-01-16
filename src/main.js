@@ -17,6 +17,8 @@ import DataView from "primevue/dataview";
 import DataViewLayoutOptions from "primevue/dataviewlayoutoptions";
 import Rating from "primevue/rating";
 import Carousel from "primevue/carousel";
+import ToggleButton from "primevue/togglebutton";
+import Divider from "primevue/divider";
 
 import "primevue/resources/themes/saga-blue/theme.css"; //theme
 //import 'primevue/resources/primevue.min.css'; //core css
@@ -38,6 +40,8 @@ createApp(App)
   .component("DataViewLayoutOptions", DataViewLayoutOptions)
   .component("Rating", Rating)
   .component("Carousel", Carousel)
+  .component("ToggleButton", ToggleButton)
+  .component("Divider", Divider)
   .use(PrimeVue)
   .use(store)
   .use(router)

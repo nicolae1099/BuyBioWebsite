@@ -1,37 +1,38 @@
 <template>
-  <AppHeader />
-  <NavigationBar />
+  <div class="navbar">
+    <AppHeader />
+  </div>
+
   <div class="w-full flex">
     <router-view></router-view>
   </div>
   <div>
     <LoginModal />
   </div>
-  <div>
-    <img src="./assets/buyBioSubHeader.jpeg" class="w-full" />
+  <div class="content">
+    <div>
+      <TopFructe />
+    </div>
+    <div>
+      <TopFructe />
+    </div>
+    <div>
+      <TopFructe />
+    </div>
+    <div>
+      <TopFructe />
+    </div>
+    <div>
+      <TopFructe />
+    </div>
   </div>
-  <div>
-    <TopFructe />
-  </div>
-  <div>
-    <TopFructe />
-  </div>
-  <div>
-    <TopFructe />
-  </div>
-  <div>
-    <TopFructe />
-  </div>
-  <div>
-    <TopFructe />
-  </div>
+
   <div>
     <Footer />
   </div>
 </template>
 
 <script>
-import NavigationBar from "./components/NavigationBar";
 import AppHeader from "./components/AppHeader";
 import LoginModal from "./components/LoginModal";
 import firebase from "./utilities/firebase";
@@ -50,8 +51,26 @@ export default {
       }
     });
   },
-  components: { NavigationBar, AppHeader, LoginModal, TopFructe, Footer }
+  components: { AppHeader, LoginModal, TopFructe, Footer }
 };
 </script>
 
-<style></style>
+<style>
+.navbar {
+  position: sticky;
+  top: 0;
+  height: 70px;
+  line-height: 50px;
+  font-size: 30px;
+  width: 100%;
+  padding: 0 20px;
+  z-index: 9999;
+}
+
+.content {
+  margin-top: 70px;
+  padding: 12px;
+  height: calc(100vh - 70px);
+  box-sizing: border-box;
+}
+</style>

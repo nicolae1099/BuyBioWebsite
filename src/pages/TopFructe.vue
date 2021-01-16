@@ -2,11 +2,10 @@
   <div class="card">
     <Carousel
       :value="products"
-      :numVisible="4"
-      :numScroll="4"
+      :numVisible="5"
+      :numScroll="5"
       :responsiveOptions="responsiveOptions"
       :circular="true"
-      :autoplayInterval="5000"
     >
       <template #header>
         <div class="flex flex-wrap">
